@@ -38,6 +38,10 @@ set(CPR_BUILD_TESTS OFF CACHE INTERNAL "")
 set(CPR_CURL_USE_LIBPSL OFF CACHE INTERNAL "")
 set(CPR_GENERATE_COVERAGE OFF CACHE INTERNAL "")
 
+set(BUILD_SHARED_LIBS OFF CACHE INTERNAL "")
+set(BUILD_STATIC_LIBS ON CACHE INTERNAL "")
+set(BUILD_CURL_EXE OFF CACHE INTERNAL "")
+
 FetchContent_MakeAvailable(cpr)
 FetchContent_MakeAvailable(json)
 # ---------------------------------------------

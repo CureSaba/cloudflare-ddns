@@ -78,9 +78,14 @@ cmake --build cmake-build-debug
 
 ### Linux / macOS (cron)
 
+プログラムは実行時のカレントディレクトリから `ddns.json` を読み書きするため、
+必ず `cd` でプロジェクトディレクトリに移動してから実行してください。
+
 ```cron
-*/5 * * * * /path/to/ddns
+*/5 * * * * cd /path/to/ddns && ./ddns
 ```
+
+`crontab -e` で上記を追加してください。`/path/to/ddns` はプロジェクトの実際のパスに置き換えてください。
 
 ### Windows (タスクスケジューラ)
 
