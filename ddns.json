@@ -1,0 +1,5 @@
+{
+  "api_token": "xxxx",
+  "domains": ["home.example.com"],
+  "ip": ""
+}

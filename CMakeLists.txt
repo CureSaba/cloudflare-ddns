@@ -8,7 +8,12 @@ include(FetchContent)
 FetchContent_Declare(
         cpr
         GIT_REPOSITORY https://github.com/libcpr/cpr.git
-        GIT_TAG        1.14.2 # 安定したバージョンを指定
+        GIT_TAG        1.14.2
+)
+FetchContent_Declare(
+        json
+        GIT_REPOSITORY https://github.com/nlohmann/json.git
+        GIT_TAG        v3.12.0
 )
 # HTTPSを有効化し、不要なテストのビルドを無効化
 set(OPENSSL_USE_STATIC_LIBS ON CACHE INTERNAL "")
@@ -18,7 +23,9 @@ set(CPR_CURL_USE_LIBPSL OFF CACHE INTERNAL "")
 set(BUILD_TESTING OFF CACHE INTERNAL "")
 
 FetchContent_MakeAvailable(cpr)
+FetchContent_MakeAvailable(json)
 # ---------------------------------------------
 
 add_executable(ddns main.cpp)
 target_link_libraries(ddns PRIVATE cpr::cpr)
+target_link_libraries(ddns PRIVATE nlohmann_json::nlohmann_json)
